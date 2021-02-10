@@ -1,0 +1,9 @@
+<h2>プロフィール編集</h2>
+<%= form_with model:@user, local:true do |f| %>
+  <label for="inputName">Name</label> <br />
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%> <br />
+  <%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "unnamed.png"%> <br />
+  <label for="inputImage">ProfileImage</label>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %> <br />
+  <%= f.submit "Update User" %>
+<% end %>
