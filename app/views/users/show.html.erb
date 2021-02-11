@@ -1,11 +1,11 @@
-<h1>User info</h1>
-
-<div class="profile-container">
- <%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "unnamed.png"%> <br />
- <h3>name</h3><%= @user.name %>
- <h3>introduction</h3><%= @user.profile%>
-</div
-
-<% if @user.id == current_user.id %>
+<h2>User Info</h2>
+  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+  <table class="table">
+    <tr>
+    <th>name</th>
+    <th><%= @user.name %></th>
+    </tr>
+  </table
+<% if @user.id == current_user.id %> 
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
