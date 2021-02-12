@@ -15,23 +15,26 @@
   </table>
   <div class="row">
     <%# if user.id == current_user.id %>
-      <%= link_to '編集', edit_user_path(user.id), :class => 'col-xs-12 btn btn-default glyphicon glyphicon-wrench' %>
+      <%= link_to '', edit_user_path(current_user.id), method: :get, class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
     <%# else %>
       <%#= link_to '', user_path(user.id), :class => 'col-xs-12 btn btn-default glyphicon glyphicon-wrench' %>
     <%# end %>
   </div>
   <h2> New book</h2>
+  
   <%= form_with model: @book, local:true do |f| %>
     <div class="field row">
       <%= f.label :title, 'Title' %>
-      <%= f.text_field :title, :class => 'col-xs-12' %>
+      <%= f.text_field :title, :class => 'form-control book_title' %>
     </div>
+    
     <div class="field row">
       <%= f.label :body, 'Opinion' %>
-      <%= f.text_area :body, :class => 'col-xs-12' %>
+      <%= f.text_area :body, :class => 'form-control book_title' %>
     </div>
+    
     <div class="actions row">
-      <%= f.submit "Create Book", :class => 'btn btn-success col-xs-12' %>
+      <%= f.submit "Create Book", :class => 'btn btn-success ' %>
     </div>
   <% end %>
 </div>
