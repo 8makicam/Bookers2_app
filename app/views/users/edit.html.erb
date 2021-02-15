@@ -1,8 +1,33 @@
-<%= form_with model:@user, local:true do |f| %>
-  <label for="inputName">Name</label><br>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%><br>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%><br>
-  <label for="inputImage">ProfileImage</label><br>
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %><br> 
-  <%= f.submit "変更を保存" %>
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		<h1>User info</h1>
+  		
+　　　<%= form_with model: @user, local:true do |f| %>
+      <div class="field row">
+      <%= f.label :name, 'Name' %>
+      <%= f.text_field :name, :class => 'form-control user_name' %>
+      </div>
+      
+     
+      <div class="field row">
+       <label>Image</label>
+       <%= f.attachment_field :profile_image %>
+      </div>
+    
+      <div class="field row">
+       <%= f.label :introduction, 'Introduction' %>
+       <%= f.text_area :introduction, :class => 'form-control user_introduction' %>
+      </div>
+    
+    <br>
+    
+    <div class="actions row">
+      <%= f.submit "Update User", :class => 'btn btn-success ' %>
+    </div>
+  <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
