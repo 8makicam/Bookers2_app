@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-   <div class="col-md-2 offset-md-1">
+   <div class="col-md-3 offset-md-">
     <div class="row">
     <%= render 'users/list', user: current_user, book: @new_book %>
     </div>
    </div>
 
-  <div class="col-md-7 offset-md-1">
+  <div class="col-md-8 offset-md-1">
    <h3>Book detail</h3>
     <table class='table table-hover table-inverse'>
 　   <tbody>
@@ -32,7 +32,7 @@
           <%= link_to edit_user_path(current_user.id) do %>
             <td><%= link_to 'Edit', edit_book_path(@book), method: :get, class: "btn btn-success btn-xs text_light" %></td>
           <% end %>
-           <td><%= link_to 'Destroy', book_path(@book), method: :delete, class: "btn btn-danger btn-xs text_light" %></td>
+           <td><%= link_to 'Destroy', book_path(@book.id), method: :delete, class: "btn btn-danger btn-xs text_light" %></td>
          <% end %>
 　　　 </tr>
 　    </tbody>
