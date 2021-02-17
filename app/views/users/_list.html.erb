@@ -1,4 +1,9 @@
-
+<% if book.errors.any? %>
+  <%= book.errors.count %>件のerrorが発生しました
+  <% book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+  <% end %>
 
 <div class="col-xs-3">
   <h2> User info </h2>
@@ -16,17 +21,17 @@
     </tbody>
   </table>
   <div class="row">
-    <%# if user.id == current_user.id %>
-      <%= link_to '', edit_user_path(current_user.id), method: :get, class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
-    <%# else %>
-      <%#= link_to '', user_path(user.id), :class => 'col-xs-12 btn btn-default' %>
-    <%# end %>
-  </div>
+        <% if user == current_user %>
+        <%= link_to '', edit_user_path(current_user), method: :get, class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+        <% else %>
+        <%= link_to '', edit_user_path(user), method: :get, class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+        <% end %>
+   </div>
 
 
   <h2> New book</h2>
   
-  <%= form_with model: @book, local:true do |f| %>
+  <%= form_with model: book, local:true do |f| %>
     <div class="field row">
       <%= f.label :title, 'Title' %>
       <%= f.text_field :title, :class => 'form-control book_title' %>

@@ -1,22 +1,30 @@
 <p id="notice"></p>
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のerrorが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+  <% end %>
+
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   		<h1>Editing Book</h1>
-  		
+
 　　　<%= form_with model: @book, local:true do |f| %>
       <div class="field row">
       <%= f.label :title, 'Title' %>
       <%= f.text_field :title, :class => 'form-control book_title' %>
       </div>
-    
+
     <div class="field row">
       <%= f.label :body, 'Opinion' %>
       <%= f.text_area :body, :class => 'form-control book_title' %>
     </div>
-    
+
     <br>
-    
+
     <div class="actions row">
       <%= f.submit "Update Book", :class => 'btn btn-success ' %>
     </div>
